@@ -92,8 +92,8 @@
 
     <script type="module">
         // WASM imports remain the same
-        import initCleaner, { remove_metadata, init_panic_hook as initCleanerHook } from './svs_cleaner/pkg/svs_cleaner.js?v=20250725';
-        import initThumb, { extract_thumbnail, init_panic_hook as initThumbHook } from './svs_thumb/pkg/svs_thumb.js?v=20250725';
+        import initCleaner, { remove_metadata, init_panic_hook as initCleanerHook } from './svs_cleaner/pkg/svs_cleaner.js';
+        import initThumb, { extract_thumbnail, init_panic_hook as initThumbHook } from './svs_thumb/pkg/svs_thumb.js';
 
         // Add thumbnailSpinner to the element refs
         const fileInput = document.getElementById('file-input'), processBtn = document.getElementById('process-btn'), btnIcon = document.getElementById('btn-icon'), btnText = document.getElementById('btn-text'), vendorModeCheckbox = document.getElementById('vendor-mode'), statusContainer = document.getElementById('status-container'), dropZone = document.getElementById('drop-zone'), dropPrompt = document.getElementById('drop-prompt'), fileInfo = document.getElementById('file-info'), previewAndOptions = document.getElementById('preview-and-options'), thumbnailContainer = document.getElementById('thumbnail-container'), thumbnailImg = document.getElementById('thumbnail'), thumbInfo = document.getElementById('thumb-info'), thumbModal = document.getElementById('thumb-modal'), modalImage = document.getElementById('modal-image'), mainInterface = document.getElementById('main-interface'), successScreen = document.getElementById('success-screen'), downloadLink = document.getElementById('download-link'), resetBtn = document.getElementById('reset-btn'), thumbnailSpinner = document.getElementById('thumbnail-spinner');
