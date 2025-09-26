@@ -1,1 +1,168 @@
-Medbotics.com x
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Medbotics Inc.</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React (UMD) + Babel for in-browser JSX transform -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-slate-50">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // -------------------------
+    // Inline H&E Logo (SVG)
+    // -------------------------
+    function LogoHE() {
+      return (
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Medbotics logo">
+          <defs>
+            <linearGradient id="heGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#e11d79" />
+              <stop offset="100%" stopColor="#2563eb" />
+            </linearGradient>
+          </defs>
+          <g stroke="url(#heGrad)" strokeWidth="4" fill="none" strokeLinecap="round">
+            <path d="M20 50 L35 25 L65 25 L80 50 L65 75 L35 75 Z" opacity="0.85"/>
+            <path d="M20 50 L35 75 M35 25 L65 75 M65 25 L35 75 M80 50 L35 25" opacity="0.85"/>
+          </g>
+          <g fill="url(#heGrad)">
+            <circle cx="20" cy="50" r="5"/>
+            <circle cx="35" cy="25" r="6"/>
+            <circle cx="65" cy="25" r="6"/>
+            <circle cx="80" cy="50" r="5"/>
+            <circle cx="65" cy="75" r="6"/>
+            <circle cx="35" cy="75" r="6"/>
+          </g>
+          <g>
+            <circle cx="50" cy="50" r="18" fill="#ffffff" stroke="url(#heGrad)" strokeWidth="4"/>
+            <circle cx="44" cy="50" r="3.5" fill="#e11d79"/>
+            <circle cx="52" cy="44" r="4.25" fill="#2563eb"/>
+            <circle cx="56" cy="56" r="2.75" fill="#e11d79"/>
+          </g>
+        </svg>
+      );
+    }
+
+    function Dot() {
+      return <span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-500 to-blue-600"></span>;
+    }
+
+    function SolutionCard({ title, body }) {
+      return (
+        <div className="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur p-6 shadow-sm">
+          <h4 className="font-semibold text-slate-800">{title}</h4>
+          <p className="mt-2 text-slate-600 text-sm">{body}</p>
+        </div>
+      );
+    }
+
+    // -------------------------
+    // Main App
+    // -------------------------
+    function App() {
+      return (
+        <div className="min-h-screen text-slate-800">
+          {/* Subtle medical background */}
+          <div className="fixed inset-0 -z-10 opacity-70">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="he-texture" width="48" height="48" patternUnits="userSpaceOnUse">
+                  <rect width="48" height="48" fill="#f8fafc"/>
+                  <path d="M0 24 H48" stroke="#e9eaf0" strokeWidth="1"/>
+                  <path d="M24 0 V48" stroke="#e9eaf0" strokeWidth="1"/>
+                  <path d="M0 0 L48 48" stroke="#eef0f6" strokeWidth="0.75"/>
+                  <path d="M48 0 L0 48" stroke="#eef0f6" strokeWidth="0.75"/>
+                </pattern>
+                <radialGradient id="vignette" cx="50%" cy="40%" r="70%">
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#ffffff" stopOpacity="0.0" />
+                </radialGradient>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#he-texture)" />
+              <rect width="100%" height="100%" fill="url(#vignette)" />
+            </svg>
+          </div>
+
+          {/* Header */}
+          <header className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12">
+                <LogoHE />
+              </div>
+              <div className="leading-tight">
+                <h1 className="text-2xl font-bold tracking-tight text-slate-900">Medbotics Inc.</h1>
+                <p className="text-sm text-slate-500">Pathology × Machine Intelligence</p>
+              </div>
+            </div>
+
+          </header>
+
+          {/* Hero */}
+          <section className="relative max-w-7xl mx-auto px-6 py-20">
+            <div className="grid lg:grid-cols-2 gap-10 items-start">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+                  Research in computational pathology.
+                </h2>
+                <p className="mt-5 text-lg text-slate-700 max-w-xl">
+                  We investigate how cellular morphology in H&E slides can be formalized into computationally tractable features to support both research and routine laboratory workflows, with an emphasis on reproducibility, rigorous validation, and privacy-preserving clinical deployment.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                </div>
+                <div className="mt-8 text-xs text-slate-500 space-x-6">
+                  <span>Preprint in preparation</span>
+                  <span>Ethics &amp; data governance first</span>
+                  <span>Canadian research group</span>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="rounded-2xl border border-slate-200 bg-white/80 backdrop-blur shadow-xl p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10"><LogoHE /></div>
+                    <div>
+                      <p className="text-sm font-semibold text-slate-700">Research driven approach</p>
+                      <p className="text-xs text-slate-500"></p>
+                    </div>
+                  </div>
+                  <div className="mt-5 grid grid-cols-3 gap-4">
+                    {[
+                      {label: 'Slide classification', value: 'State-of-the-art slide understanding and trends across many slides'},
+                      {label: 'Melanoma', value: 'Specialized tools melanoma diagnostics'},
+                    {label: 'Lab support', value: 'Tools to for slide review and QA'}, 
+                    ].map((card, i) => (
+                      <div key={i} className="rounded-xl border border-slate-200 p-4">
+                        <p className="text-xs text-slate-500">{card.label}</p>
+                        <p className="mt-1 text-sm font-semibold">{card.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 rounded-xl p-4 bg-gradient-to-r from-pink-50 to-blue-50 border border-slate-200">
+                    <p className="text-sm text-slate-600">
+                      Open science where possible; de-identified data only; clear provenance for every experiment.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+          <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+            © {new Date().getFullYear()} Medbotics Inc. All rights reserved.
+          </footer>
+        </div>
+      );
+    }
+
+    // Mount
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
